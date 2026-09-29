@@ -35,8 +35,13 @@ app.get("/bmi", (req, res) => {
   });
 });
 
+interface ExerciseRequestBody {
+  daily_exercises?: unknown;
+  target?: unknown;
+}
+
 app.post("/exercises", (req, res) => {
-  const { daily_exercises, target } = req.body;
+  const { daily_exercises, target } = req.body as ExerciseRequestBody;
 
   if (!daily_exercises || target === undefined) {
     return res.status(400).json({
