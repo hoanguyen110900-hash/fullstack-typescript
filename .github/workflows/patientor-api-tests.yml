@@ -44,6 +44,18 @@ jobs:
         working-directory: ./patientor-api-tests
         run: npm test
 
+      - name: Check Playwright report
+        if: always()
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Patientor API tests:"
+          ls -la patientor-api-tests/
+
+          echo "Playwright report:"
+          ls -la patientor-api-tests/playwright-report/ || true
+
       - name: Upload test report
         uses: actions/upload-artifact@v6
         if: always()
