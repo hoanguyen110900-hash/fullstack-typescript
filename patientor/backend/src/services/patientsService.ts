@@ -7,7 +7,15 @@ import type {
 import { v1 as uuid } from "uuid";
 
 const getEntries = (): PatientNonSensitive[] => {
-  return patientsData.map(({ ssn, ...patientWithoutSsn }) => patientWithoutSsn);
+  return patientsData.map((patientWithoutSsn) => {
+    return {
+      name: patientWithoutSsn.name,
+      dateOfBirth: patientWithoutSsn.dateOfBirth,
+      gender: patientWithoutSsn.gender,
+      occupation: patientWithoutSsn.occupation,
+      id: patientWithoutSsn.id,
+    };
+  });
 };
 
 const getPatient = (id: string): PatientNonSensitive => {
