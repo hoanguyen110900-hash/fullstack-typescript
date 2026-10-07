@@ -2,7 +2,7 @@ name: Patientor API Tests
 
 on:
   push:
-    branches: [main, master]
+    branches: [xmain, xmaster]
 
 jobs:
   test:
